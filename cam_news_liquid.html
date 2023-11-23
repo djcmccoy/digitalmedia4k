@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>DM DIGITAL DESIGN</title>
+    <title>DM DIGITAL MEDIA</title>
 
 	<!-- Meta Data -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,24 +58,20 @@
 	</div>
 
 	<!-- Top -->
-	<nav class="navbar">
+	<nav class="navbar" id="navbar">
 	    <div class="mr-auto logo-container">
 	        <a class="logo-link" href="index.html">
-	            <!-- Dark logo -->
-	            <img class="logotype logotype__front dark-logo" src="../assets/images/logo.svg" alt="Logo" />
-	            <!-- Light logo -->
-	            <img class="logotype logotype__back light-logo" src="../assets/images/logo_white.svg" alt="Logo" />
+	            <!-- Single logo SVG with dynamic color -->
+	            <img class="logotype theme-invert" src="assets/images/logo.svg" alt="Logo" />
 	        </a>
 	    </div>
 	    <div class="ml-sm-auto">
 	        <!-- Theme Toggle -->
 	        <button id="themeToggle" style="cursor: pointer; margin-right: 10px; margin-left:20px; background: none; border: none; padding: 0;">
-	            <!-- Light Theme SVG (Visible by default) -->
-	            <img id="lightThemeSVG" src="assets/images/toggle_moon.svg" alt="Light Theme Icon" width="20">
-	            <!-- Dark Theme SVG (Hidden by default) -->
-	            <img id="darkThemeSVG" src="assets/images/toggle_sun_black.svg" alt="Dark Theme Icon" width="20">
+	            <!-- Theme Toggle SVG (Visible by default) -->
+	            <img class="theme-invert theme-invert-logo" src="assets/images/toggle_moon.svg" alt="Theme Toggle Icon" width="25">
 	        </button>
-	        <button class="hamburger zoom-cursor theme-invert" type="button">
+	        <button id="hamburgerButton" class="hamburger zoom-cursor" type="button">
 	            <span class="hamburger__inner"></span>
 	        </button>
 	    </div>
@@ -103,6 +99,17 @@
 		
 	    <div class="flex-grid fitGrid js-sort">
 		    <div class="gutter-sizer gutter-sizer--3"></div>
+		    	<!-- Post -->
+		    <article class="item-news item-news--tree triger-hl category-work">
+				<figure class="item-news__media js-block">
+					<img class="item-news__image lazyload" src=""../assets/img/image_news_01.jpg"" alt="News">
+				</figure>
+				<div class="item-news__header js-block">
+					<div class="date">Automotivo</div>
+					<h2 class="title title--h5 item-news__title"><a href=""><span class="hover-line">Kawasaki Ninja 400 Spotlight<br>Coming Soon</span></a></h2>
+				</div>
+			</article>
+		    <!-- /Post -->
 
 		        <!-- Post -->
 		    <article class="item-news item-news--tree triger-hl category-work">
@@ -111,7 +118,7 @@
 				</figure>
 				<div class="item-news__header js-block">
 					<div class="date">Automotivo</div>
-					<h2 class="title title--h5 item-news__title"><a href="../news_single.html"><span class="hover-line">Mercedes Benz AMG Spotlight</span></a></h2>
+					<h2 class="title title--h5 item-news__title"><a href="../news_single.html"><span class="hover-line">Mercedes Benz AMG Spotlight<br>Coming Soon</span></a></h2>
 				</div>
 			</article>
 		    <!-- /Post -->
@@ -170,8 +177,8 @@
 					<img class="item-news__image lazyload" src="../assets/img/image_news_01.jpg" alt="News">
 				</figure>
 				<div class="item-news__header js-block">
-					<div class="date">Video Design/2023</div>
-					<h2 class="title title--h5 item-news__title"><a href="../news_single.html"><span class="hover-line">DM4K Original<br>Atlanta</span></a></h2>
+					<div class="date">Cityscape</div>
+					<h2 class="title title--h5 item-news__title"><a href=""><span class="hover-line">Atlanta<br>Coming Soon</span></a></h2>
 				</div>
 			</article>
 		    <!-- /Post -->
@@ -218,7 +225,7 @@
 					    	<li>ATLANTA, GA</li></ul>
 			        <ul class="listContact list-unstyled theme-invert">
 						<li><h6 class="title title--h6">GET IN TOUCH</h6></li>
-                       				<li>dm4k@gmail.com</li>
+                       				<li>DEION4K@GMAIL.COM</li>
 				    </ul>
 			        <ul class="listContact list-unstyled theme-invert">
 						<li><h6 class="title title--h6 theme-invert" href"https://www.youtube.com/channel/UCHYDYKA1Sj9hO9BcyC_BJHQ">SUB TO MY YOUTUBE</h6></li>
@@ -236,7 +243,7 @@
                 <li><a class="menu-list__item" href="projects.html"><span>HOME</span></a></li>
 			    <li><a class="menu-list__item" href="cam_news_liquid.html"><span>CAMERA</span></a></li>
 			    <li><a class="menu-list__item" href="cad_news_liquid.html"><span>CADD</span></a></li>
-			    <li><a class="menu-list__item" href="3D_news_liquid.html"><span>3D</span></a></li>
+			    <li><a class="menu-list__item" href="3d_news_liquid.html"><span>3D</span></a></li>
 			</ul>
 		</div>
 		<div class="social social--white">
@@ -254,6 +261,7 @@
 	<script src="../assets/js/plugins.js"></script>
     	<script src="../assets/js/common.js"></script>
 	<script src="../assets/js/themeToggle.js"></script>
+	<script src="assets/js/navHide.js"></script>
 
 </body>
 </html>

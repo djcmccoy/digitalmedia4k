@@ -82,6 +82,10 @@
     --light-text: black;
     --dark-bg: black;
     --dark-text: white;
+    /*ADDED
+    --bullet-active-bg-light: #ffffff; /* Light theme color for active bullet 
+    --bullet-active-bg-dark: #110f10;  /* Dark theme color for active bullet */
+}
 }
 
 html {
@@ -1065,6 +1069,8 @@ button:focus {
   transition: all 0.3s cubic-bezier(0.72, 0.16, 0.345, 0.875);
   width: 100%;
   z-index: 1001;
+  /* ADDED STYLES */
+  transition: opacity 0.5s ease;
 }
 @media only screen and (max-width: 1500px) {
   .navbar {
@@ -1264,6 +1270,8 @@ button:focus {
   border: 0;
   padding: 0;
   vertical-align: middle;
+  /*ADDED*/
+  z-index: 1002; 
 }
 .hamburger__inner {
   display: block;
@@ -1431,6 +1439,7 @@ button:focus {
 .menu.menu-show .menu-list__item span {
   opacity: 1;
   transform: translate3d(0, 0%, 0);
+  transition: .3s ease;
 }
 .menu.menu-show .social {
   opacity: 1;
@@ -1510,9 +1519,11 @@ button:focus {
 }
 .menu-list.has-hovered-link .menu-list__item {
   opacity: .1;
+  transition: .3s ease;
 }
 .menu-list.has-hovered-link .menu-list__item:hover {
   opacity: 1;
+  transition: .3s ease;
 }
 .menu-list__item {
   color: #fff;
@@ -1523,6 +1534,7 @@ button:focus {
   overflow: hidden;
   position: relative;
   text-decoration: none;
+  transition: .3s ease;
 }
 @media only screen and (max-width: 1500px) {
   .menu-list__item {
@@ -2511,11 +2523,11 @@ li:nth-child(4) .menu-list__item span {
 .swiper-pagination-bullet {
   background: #8d99a7;
   display: block;
-  height: 6px;
+  height: 14px;
   margin: 30px 0;
   opacity: 1;
   outline: none;
-  width: 6px;
+  width: 14px;
 }
 @media only screen and (max-width: 992px) {
   .swiper-pagination-bullet {
@@ -4958,12 +4970,14 @@ li:nth-child(4) .menu-list__item span {
   height: 25%;
 }
 
-/*ADDITIONAL CSS */
+/*==============================================
+ADDITIONAL CSS 
+==============================================*/
 
 /* Base Styles */
 body {
     transition: background-color 0.3s ease, color 0.3s ease;
-    background-color: #ffffff; /* default to light theme */
+    background-color: #ffffff;
     color: #110F10;
 }
 
@@ -4974,7 +4988,7 @@ a, .btn-link {
 
 /* Theme invert: Elements that should switch their colors based on the theme */
 .theme-invert {
-    transition: color 0.3s ease, filter 0.3s ease; /* Added filter for inversion */
+    transition: color 0.3s ease, filter 0.3s ease;
 }
 
 /* Dark Theme Styles */
@@ -4990,33 +5004,32 @@ body[data-theme='dark'] .btn-link {
 
 body[data-theme='dark'] .theme-invert {
     color: #110F10;
-    filter: invert(1); /* Invert the colors */
+    filter: invert(1);
 }
 
 /* Hamburger styles */
 .hamburger {
-    background-color: transparent; /* Ensure transparent background */
-    border: none; /* Remove any borders */
+    background-color: transparent;
+    border: none;
     transition: background-color 0.3s ease;
 }
 
 .hamburger__inner::before,
 .hamburger__inner::after {
-    background-color: #110F10; /* Default color for the lines in light theme */
-    transition: background-color 0.3s ease; /* Smooth transition for color changes */
+    background-color: #110F10;
+    transition: background-color 0.3s ease;
 }
 
 body[data-theme='dark'] .hamburger__inner::before,
 body[data-theme='dark'] .hamburger__inner::after {
-    background-color: #ffffff; /* Color for the lines in dark theme */
+    background-color: #ffffff;
 }
 
-/* Hide the Dark Theme SVG by default */
+/* Dark Theme SVG */
 #darkThemeSVG {
     display: none;
 }
 
-/* When dark theme is active, hide the Light Theme SVG and show the Dark Theme SVG */
 body[data-theme='dark'] #lightThemeSVG {
     display: none;
 }
@@ -5025,20 +5038,51 @@ body[data-theme='dark'] #darkThemeSVG {
     display: inline;
 }
 
-/* DROPDOWN NAVBAR INVERT 
-/* Main Navbar Style */
+/* Dropdown Navbar Styles */
 .dropdown-nav .navbar {
-    background-color: rgba(255, 255, 255, 0.5); /* half-transparent white for light theme */
-    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease, opacity 0.5s ease;
 }
 
-/* Dark Theme Styles */
 .dropdown-nav body[data-theme='dark'] .navbar {
     color: #110F10;
-    background-color: rgba(17, 15, 16, 0.5); /* half-transparent dark color for dark theme */
+    background-color: rgba(17, 15, 16, 0.5);
 }
 
-/* DROPDOWN NAVBAR INVERT */
+/* Fading Effects */
+.dropdown-nav.fade-out .logo-link, 
+.dropdown-nav.fade-out #themeToggle,
+.dropdown-nav.background-fade-out {
+    opacity: 0; /* Fully transparent */
+}
 
+/* Apply SWIPER BULLET colors based on the theme
+body[data-theme="light"] .swiper-pagination-bullet-active {
+    background: var(--bullet-active-bg-light);
+}
+
+body[data-theme="dark"] .swiper-pagination-bullet-active {
+    background: var(--bullet-active-bg-dark);
+}
+ */
+
+.header-page {
+    position: relative; /* Ensure the header has a relative position */
+    overflow: hidden; /* This will clip the video if it overflows the header's bounds */
+}
+
+#responsive-video {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Absolute position within the header */
+    top: 0; /* Align to the top of the header */
+    left: 0; /* Align to the left of the header */
+    z-index: -1; /* Place it under other elements in the header */
+}
+
+
+/*==============================================
+ADDITIONAL CSS 
+==============================================*/
 
 /* sourceMappingURL=style.css.map */

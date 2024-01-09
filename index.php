@@ -1,3 +1,15 @@
+<?php
+function isMobileDevice() {
+    return preg_match('/mobile|android|touch|samsung|blackberry|iphone|ipad|ipod|opera mini|iemobile|wpdesktop/', strtolower($_SERVER['HTTP_USER_AGENT']));
+}
+
+if (isMobileDevice()) {
+    header("Location: ../m/m_index.php"); // Redirect to the mobile-specific page
+    exit;
+}
+// Continue with the rest of your index.php code for desktop version
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
